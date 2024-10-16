@@ -1,5 +1,7 @@
 # HW1-1: write python to solve simple linear regression problem, following CRISP-DM.
 
+![App Screenshot](image/app.png)
+
 ## Overview
 
 The main program is located in [`main.ipynb`](main.ipynb), using **GitHub Copilot** for assistance.
