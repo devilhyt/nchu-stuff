@@ -57,9 +57,15 @@ def index():
 
         # Plot the training data, testing data, and regression line
         plt.figure(figsize=(10, 6))
-        plt.scatter(X_train, y_train, color='green', label='Training Data')
+        plt.scatter(X_train, y_train, color='black', label='Training Data', alpha=0.2)
         plt.scatter(X_test, y_test, color='blue', label='Testing Data')
-        plt.plot(X_test, y_pred, color='red', linewidth=2, label='Regression Line')
+        plt.scatter(X_test, y_pred, color='red', label='Predicted')
+        plt.plot(X_test, y_pred, color='green', linewidth=2, label='Regression Line')
+        
+        # Link the predicted and actual points
+        for i in range(len(X_test)):
+            plt.plot([X_test[i], X_test[i]], [y_test[i], y_pred[i]], color='gray', linestyle='--')
+            
         plt.xlabel('X')
         plt.ylabel('y')
         plt.title('Training and Testing Data with Regression Line')

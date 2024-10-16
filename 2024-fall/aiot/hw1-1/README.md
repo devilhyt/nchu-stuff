@@ -1,4 +1,4 @@
-# HW1-1: write python to solve simple linear regression problem, following CRISP-DM
+# HW1-1: write python to solve simple linear regression problem, following CRISP-DM.
 
 ## Overview
 
@@ -9,21 +9,33 @@ Since the assignment requires setting up a Flask server, some of the code is pla
 ## Environment Setup
 
 - The environment used in this project:
-  - OS：Ubuntu 22.04.3 LTS
-  - Python：3.10.15
+  - OS: Ubuntu 22.04.3 LTS
+  - Python: 3.10.15
 
-- Check the Python version
+- Clone this folder with `sparse-checkout`.
+  ```bash
+  git clone --depth 1 --no-checkout https://github.com/devilhyt/nchu-stuff.git
+
+  cd nchu-stuff
+  git sparse-checkout init --cone
+  git sparse-checkout set "2024-fall/aiot/hw1-1"
+  git checkout
+  
+  cd 2024-fall/aiot/hw1-1
+  ```
+
+- Check the Python version.
   ```bash
   python --version
   ```
-- Install all dependencies
+- Install all dependencies.
   ```bash
   pip install -r requirements.txt
   ```
-- Run Flask Server
+- Open and view the [`main.ipynb`](main.ipynb) file.
 
-  Before running this command. Please ensure that you are in the directory where [`app.py`](app.py) is located.
+- Run Flask server.
   ```bash
   flask run 
   ```
-  The server is running on http://127.0.0.1:5000
+  The server is running on http://127.0.0.1:5000.
