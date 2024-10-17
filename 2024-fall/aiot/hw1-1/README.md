@@ -4,17 +4,18 @@
 
 ## Overview
 
-The main program is located in [`main.ipynb`](main.ipynb), using **GitHub Copilot** for assistance.
 
-Since the assignment requires setting up a Flask server, some of the code is placed in [`app.py`](app.py). For more details, please refer to the description in [`main.ipynb`](main.ipynb).
+The [`main.ipynb`](main.ipynb) file is the primary submission for the assignment, developed with the assistance of **GitHub Copilot**.
+
+As the assignment requires deploying with a Flask server, the code has been integrated and placed in [`app.py`](app.py) for easy server startup.
 
 ## Environment Setup
 
-- The environment used in this project:
+### The environment used in this assignment:
   - OS: Ubuntu 22.04.3 LTS
   - Python: 3.10.15
 
-- Clone this folder with `sparse-checkout`.
+### Step 1. Clone this folder with `sparse-checkout`.
   ```bash
   git clone --depth 1 --no-checkout https://github.com/devilhyt/nchu-stuff.git
 
@@ -26,17 +27,17 @@ Since the assignment requires setting up a Flask server, some of the code is pla
   cd 2024-fall/aiot/hw1-1
   ```
 
-- Check the Python version.
+### Step 2. Check the Python version.
   ```bash
   python --version
   ```
-- Install all dependencies.
+### Step 3. Install all dependencies.
   ```bash
   pip install -r requirements.txt
   ```
-- Open and view the [`main.ipynb`](main.ipynb) file.
-
-- Run Flask server.
+### Step 4. Open and view the [`main.ipynb`](main.ipynb) file.
+  This is the primary submission for the assignment.
+### Step 5. Run Flask server.
   ```bash
   flask run 
   ```
