@@ -1,4 +1,4 @@
-# HW1-1: Multiple Linear Regression And Feature Selection.
+# HW1-2: Multiple Linear Regression And Feature Selection On California Housing Prices Dataset.
 
 ![rmse](image/rmse.png)
 
@@ -44,3 +44,6 @@ As the assignment requires deploying with a Streamlit server, the code has been 
   ```
   - The server is running on http://localhost:8501
   - Streamlit will just increment the port number to 8502, 8503, etc. if 8501 is in-use.
+
+  #### App Screenshot
+  ![APP Screenshot](image/app.png)
