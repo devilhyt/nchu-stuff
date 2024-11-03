@@ -1,6 +1,6 @@
-# HW2: Logistic regression - titanic or others (kaggle 練習 and confusion matrix)
+# HW2: Logistic regression - titanic or others (kaggle practice and confusion matrix)
 
-![score](image/score.png)
+![Kaggle Titanic](image/kaggle-titanic.png)
 
 ## Overview
 
@@ -36,3 +36,11 @@ The [`main.ipynb`](main.ipynb) file is the primary submission for the assignment
   ```
 ### Step 4. Open and view the [`main.ipynb`](main.ipynb) file.
   This is the primary submission for the assignment.
+
+## Result
+
+### Kaggle Leaderboard
+  ![score](image/score.png)
+
+### Confusion matrix for the Test set (split from train.csv)
+  ![Confusion matrix](image/confusion-matrix.png)
