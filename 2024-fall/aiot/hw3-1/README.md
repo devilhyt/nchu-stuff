@@ -11,7 +11,7 @@ The [`main.ipynb`](main.ipynb) file is the primary submission for the assignment
 ## Environment Setup
 
 ### The environment used in this assignment:
-  - OS: Ubuntu 22.04.3 LTS
+  - OS: Linux Mint 22
   - Python: 3.11.10
 
 ### Step 1. Clone this folder with `sparse-checkout`.
