@@ -8,7 +8,8 @@ import streamlit as st
 
 st.markdown('''# HW3-2: 2D SVM with streamlit deployment (3D plot) - The dataset is distributed in a circular shape on the feature plane.''')
 
-st.markdown('''- The code in this notebook was generated using [GitHub Copilot](https://github.com/features/copilot).''')
+st.markdown('''- The code in this notebook was generated using [GitHub Copilot](https://github.com/features/copilot).
+- HW3-3 is a continuation of [HW3-2](../hw3-2), with only minor content differences. The prompt remains the same, but with modifications specific to HW3-3.''')
 
 st.markdown('''## Prompt
 Generate a Python script that follows the CRISP-DM process to classify a dataset using Support Vector Machine (SVM). The task is to generate 600 random 2D points centered at the coordinates (0,0) with a variance of 10. Each point should be assigned a label: Y=0 for points within a distance of 4 from the origin, and Y=1 for points further than 4. Additionally, generate a third feature x3 using a Gaussian function applied to x1 and x2 for a 3D plot, and display the SVM hyperplane during evaluation.
@@ -37,7 +38,7 @@ Generate a Python script that follows the CRISP-DM process to classify a dataset
     - Display a 3D scatter plot of the entire dataset (including both training and test data). Use the same x1, x2, and x3 axes, and color the points according to their true class labels (Y). Also, display the SVM hyperplane in the 3D plot to visualize the decision boundary.
 6. Deployment:
     - Deploy the SVM model using Streamlit.
-    - Allow the user to adjust the distance threshold and variance of the dataset using sliders.
+    - Allow the user to adjust the distance threshold using a slider.
     - Update the 2D and 3D scatter plots based on the user's input.
 
 ## Modify
@@ -61,13 +62,13 @@ st.markdown('''### Step 2: Data Understanding
 - 2D and 3D scatter plots are generated to visualize the dataset.'''    
 )
 
-# Add sliders for variance and distance threshold
-variance = 10
+# Add a slider for distance threshold
 distance_threshold = st.slider('Distance Threshold', min_value=1., max_value=6., value=4.)
 
 # Generate 600 random points in 2D space
 np.random.seed(42)
 n_points = 600
+variance = 10
 
 x1 = np.random.normal(0, np.sqrt(variance), n_points)
 x2 = np.random.normal(0, np.sqrt(variance), n_points)
