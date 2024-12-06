@@ -1,5 +1,6 @@
 dataset/
 /yolo11*.pt
+wandb/
 
 *~
 
