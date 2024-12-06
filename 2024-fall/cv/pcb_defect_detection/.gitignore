@@ -1,6 +1,4 @@
 dataset/
-pcb-defect-dataset/
-pcb-defect-dataset.zip
 /yolo11*.pt
 
 *~
