@@ -1,4 +1,3 @@
-import cv2
 import streamlit as st
 from streamlit_extras.metric_cards import style_metric_cards
 from ultralytics import YOLO
@@ -14,7 +13,7 @@ style_metric_cards(
 
 @st.cache_resource
 def load_model():
-    return YOLO("pcb_defect/v2/weights/best.pt")
+    return YOLO("pcb_defect/v3/weights/best.pt")
 
 
 def file_uploader_on_change():
