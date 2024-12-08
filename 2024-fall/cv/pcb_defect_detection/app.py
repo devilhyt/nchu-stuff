@@ -26,10 +26,11 @@ if "image_updated" not in st.session_state:
 
 model = load_model()
 
-st.title("PCB 瑕疵檢測")
+st.title("PCB Defect Detection")
+st.image('./image/pcb.jpg', use_container_width=True)
 st.divider()
 
-st.header("請上傳 PCB 圖片")
+st.header("Choose an PCB image")
 uploaded_file = st.file_uploader("", type=["jpg", "jpeg", "png"], on_change=file_uploader_on_change)
 st.divider()
 
@@ -46,7 +47,7 @@ if uploaded_file is not None and st.session_state["image_updated"]:
 
 # Display the results.
 if uploaded_file is not None:
-    st.subheader("瑕疵數量統計")
+    st.subheader("Defects Count")
     cols = st.columns(3)
     label_count = st.session_state["label_count"]
     for i, name in enumerate(model.names.values()):
@@ -56,12 +57,12 @@ if uploaded_file is not None:
             cols = st.columns(3)
     st.divider()
 
-    st.subheader("瑕疵點位")
-    image_switch = st.checkbox("顯示原始圖片")
+    st.subheader("Fault Points")
+    image_switch = st.checkbox("Show Original Image")
     if image_switch:
         image = st.session_state["image"]
         st.image(image)
     else:
         annotated_frame = st.session_state["annotated_frame"]
         st.image(annotated_frame)
-    st.divider()
+    st.divider()  
