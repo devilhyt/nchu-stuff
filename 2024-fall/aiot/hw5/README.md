@@ -1,5 +1,8 @@
 # HW5: Deep Learning basics
 
+![mnist](image/mnist.png)
+![cifar10](image/cifar10.png)
+
 ## Overview
 
 The [`hw5-1.ipynb`](hw5-1.ipynb), [`hw5-2.ipynb`](hw5-2.ipynb) and [`hw5-3.ipynb`](hw5-3.ipynb) files are the primary submission for the assignment, developed with the assistance of **GitHub Copilot**.
