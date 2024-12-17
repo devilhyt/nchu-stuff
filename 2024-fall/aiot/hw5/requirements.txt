@@ -2,3 +2,4 @@ tensorflow==2.17.1
 scikit-learn==1.6.0
 lightning==2.4.0
 torchvision==0.20.1
+matplotlib==3.10.0
