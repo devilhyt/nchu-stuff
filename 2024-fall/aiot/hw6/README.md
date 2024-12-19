@@ -1,7 +1,7 @@
 # HW6: Transfer Learning and Hugging Face
 
-![mnist](image/mnist.png)
-![cifar10](image/cifar10.png)
+![face-mask-detection](image/face-mask-detection.png)
+![stable-diffusion](image/stable-diffusion.png)
 
 ## Overview
 
