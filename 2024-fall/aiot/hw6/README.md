@@ -1,7 +1,9 @@
 # HW6: Transfer Learning and Hugging Face
 
-![face-mask-detection](image/face-mask-detection.png)
-![stable-diffusion](image/stable-diffusion.png)
+| **HW6-1 Face mask detection** | **HW6-2 Stable-Diffusion** |
+| :---------: | :---------: |
+| ![face-mask-detection](image/face-mask-detection.png) | ![stable-diffusion](image/stable-diffusion.png) |
+
 
 ## Overview
 
