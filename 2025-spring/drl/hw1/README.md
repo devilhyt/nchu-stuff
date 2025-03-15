@@ -6,6 +6,9 @@
 
 This Flask application implements a grid-based reinforcement learning environment that demonstrates value iteration for finding optimal paths.
 
+> [!NOTE]
+> Random feature can be regarded as `HW1-2`.
+
 ## Features
 
 1. **Grid Generation**
