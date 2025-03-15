@@ -91,4 +91,4 @@ The server is running on http://127.0.0.1:5000.
 
 ## Additional Notes
 
-- For a detailed record of how I used GitHub Copilot during development, see [prompt.md](prompt.md).
+- For a detailed record of how I used GitHub Copilot during development, see [PROMPT.md](PROMPT.md).
