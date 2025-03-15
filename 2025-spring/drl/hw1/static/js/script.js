@@ -266,6 +266,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
+        // Clear any previous path highlights
+        document.querySelectorAll('.path-highlight').forEach(cell => {
+            cell.classList.remove('path-highlight');
+        });
+        
         // Disable buttons during animation
         goBtn.disabled = true;
         calcBtn.disabled = true;
@@ -317,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // Continue animation after delay
-                robotAnimationId = setTimeout(animateRobot, 500);
+                robotAnimationId = setTimeout(animateRobot, 250);
             } else {
                 showMessage('Robot reached the destination!', 'success');
                 goBtn.disabled = false;
@@ -326,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Start animation
-        robotAnimationId = setTimeout(animateRobot, 500);
+        robotAnimationId = setTimeout(animateRobot, 250);
     }
     
     // Reset the grid

@@ -74,12 +74,15 @@
 
 .legend {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
 
 .badge {
     padding: 5px;
-    margin: 0 2px;
+    margin: 3px;
+    white-space: nowrap;
 }
 
 .start-badge {
@@ -97,6 +100,11 @@
 .empty-badge {
     background-color: #fff;
     border: 1px solid #ccc;
+    color: #333;
+}
+
+.path-badge {
+    background-color: #ffc107;
     color: #333;
 }
 
