@@ -66,10 +66,35 @@
 
 .arrow {
     position: absolute;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+}
+
+/* Position arrows for multiple directions */
+.arrow-up {
+    top: 25%;
+    left: 50%;
+}
+
+.arrow-right {
+    top: 50%;
+    left: 75%;  
+}
+
+.arrow-down {
+    top: 75%;
+    left: 50%;
+}
+
+.arrow-left {
+    top: 50%;
+    left: 25%;
+}
+
+/* When only one arrow */
+.arrow:only-child {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
 }
 
 .legend {

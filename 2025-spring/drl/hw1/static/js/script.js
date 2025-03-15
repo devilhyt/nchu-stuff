@@ -224,29 +224,44 @@ document.addEventListener('DOMContentLoaded', function() {
             const row = parseInt(cell.dataset.row);
             const col = parseInt(cell.dataset.col);
             
-            // Display arrow for policy direction
-            const arrow = document.createElement('div');
-            arrow.className = 'arrow';
-            
-            switch (policyMap[row][col]) {
-                case 'up':
-                    arrow.innerHTML = '&#8593;'; // Up arrow
-                    break;
-                case 'right':
-                    arrow.innerHTML = '&#8594;'; // Right arrow
-                    break;
-                case 'down':
-                    arrow.innerHTML = '&#8595;'; // Down arrow
-                    break;
-                case 'left':
-                    arrow.innerHTML = '&#8592;'; // Left arrow
-                    break;
-                default:
-                    arrow.innerHTML = '&#9673;'; // Circle for end or obstacle
-            }
-            
+            // Clear cell content
             cell.innerHTML = '';
-            cell.appendChild(arrow);
+            
+            // For cells with multiple optimal directions
+            if (Array.isArray(policyMap[row][col]) && policyMap[row][col].length > 0) {
+                const actions = policyMap[row][col];
+                
+                // Create arrows for each optimal direction
+                actions.forEach(action => {
+                    const arrow = document.createElement('div');
+                    arrow.className = `arrow arrow-${action}`;
+                    
+                    switch (action) {
+                        case 'up':
+                            arrow.innerHTML = '&#8593;'; // Up arrow
+                            break;
+                        case 'right':
+                            arrow.innerHTML = '&#8594;'; // Right arrow
+                            break;
+                        case 'down':
+                            arrow.innerHTML = '&#8595;'; // Down arrow
+                            break;
+                        case 'left':
+                            arrow.innerHTML = '&#8592;'; // Left arrow
+                            break;
+                        default:
+                            arrow.innerHTML = '&#9673;'; // Circle for end or obstacle
+                    }
+                    
+                    cell.appendChild(arrow);
+                });
+            } else {
+                // For end or obstacle cells (fallback)
+                const arrow = document.createElement('div');
+                arrow.className = 'arrow';
+                arrow.innerHTML = '&#9673;'; // Circle for end or obstacle
+                cell.appendChild(arrow);
+            }
             
             // Color based on the original grid
             if (gridData[row][col] === 'start') {

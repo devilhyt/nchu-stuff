@@ -56,8 +56,8 @@ def value_iteration(grid, grid_size, end_pos):
     # Initialize value map
     v_map = np.zeros((grid_size, grid_size))
     
-    # Initialize policy map
-    policy = [['' for _ in range(grid_size)] for _ in range(grid_size)]
+    # Initialize policy map (now will store lists of actions instead of single actions)
+    policy = [[[] for _ in range(grid_size)] for _ in range(grid_size)]
     
     # Value Iteration parameters
     gamma = 0.9  # discount factor
@@ -90,9 +90,14 @@ def value_iteration(grid, grid_size, end_pos):
                 # Take the action with maximum value
                 v_map[i, j] = max(action_values)
                 
-                # Update policy
-                best_action = action_names[np.argmax(action_values)]
-                policy[i][j] = best_action
+                # Update policy - now include all actions with max value
+                max_value = max(action_values)
+                best_actions = []
+                for idx, val in enumerate(action_values):
+                    # Include action if its value is close enough to the max value
+                    if abs(val - max_value) < 1e-10:  # Use small epsilon for floating point comparison
+                        best_actions.append(action_names[idx])
+                policy[i][j] = best_actions
                 
                 delta = max(delta, abs(v - v_map[i, j]))
         
@@ -119,10 +124,13 @@ def find_path(start_pos, end_pos, policy, grid_size):
     
     while current != end_pos and steps < max_steps:
         i, j = current
-        action = policy[i][j]
+        actions = policy[i][j]
         
-        if not action:  # No valid action
+        if not actions:  # No valid action
             break
+        
+        # Just take the first action if there are multiple optimal actions
+        action = actions[0]
         
         di, dj = action_deltas[action]
         ni, nj = i + di, j + dj
