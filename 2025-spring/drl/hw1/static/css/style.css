@@ -1,0 +1,117 @@
+.grid-container {
+    display: grid;
+    gap: 2px;
+    margin: 0 auto;
+}
+
+.grid-cell {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border: 1px solid #ccc;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.grid-cell:hover {
+    opacity: 0.8;
+}
+
+.start {
+    background-color: #28a745;
+}
+
+.end {
+    background-color: #dc3545;
+}
+
+.obstacle {
+    background-color: #6c757d;
+}
+
+.robot {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background-color: #007bff;
+    border-radius: 50%;
+    top: 15%;
+    left: 15%;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.cell-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.legend {
+    display: flex;
+    justify-content: space-around;
+}
+
+.badge {
+    padding: 5px;
+    margin: 0 2px;
+}
+
+.start-badge {
+    background-color: #28a745;
+}
+
+.end-badge {
+    background-color: #dc3545;
+}
+
+.obstacle-badge {
+    background-color: #6c757d;
+}
+
+.empty-badge {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+.path-highlight {
+    background-color: #ffc107;
+    animation: highlightPath 0.5s;
+}
+
+@keyframes highlightPath {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

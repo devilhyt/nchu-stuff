@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid World RL</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Grid World Reinforcement Learning</h1>
+        
+        <div class="row mb-3">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <label for="gridSize">Grid Size (3-9):</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="gridSize" min="3" max="9" value="5">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" id="generateBtn">Generate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Grid Map
+                    </div>
+                    <div class="card-body">
+                        <div id="gridContainer" class="grid-container"></div>
+                        <div class="legend mt-3">
+                            <span class="badge start-badge">Start</span>
+                            <span class="badge end-badge">End</span>
+                            <span class="badge obstacle-badge">Obstacle</span>
+                            <span class="badge empty-badge">Empty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        Value Map
+                    </div>
+                    <div class="card-body">
+                        <div id="valueContainer" class="grid-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        Policy Map
+                    </div>
+                    <div class="card-body">
+                        <div id="policyContainer" class="grid-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-success flex-fill" id="calcBtn">CALC</button>
+                    <button class="btn btn-primary flex-fill" id="goBtn" disabled>GO</button>
+                    <button class="btn btn-danger flex-fill" id="resetBtn">RESET</button>
+                </div>
+                <div class="alert alert-info" id="messageBox" style="display: none;"></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        Instructions
+                    </div>
+                    <div class="card-body">
+                        <ol>
+                            <li>Enter a grid size (3-9) and click Generate.</li>
+                            <li>Click on cells to set:
+                                <ul>
+                                    <li>First click: Start position (green)</li>
+                                    <li>Second click: End position (red)</li>
+                                    <li>Next N-2 clicks: Obstacles (gray)</li>
+                                </ul>
+                            </li>
+                            <li>Click CALC to calculate the optimal policy.</li>
+                            <li>Click GO to watch the robot follow the optimal path.</li>
+                            <li>Click RESET to clear the grid and start over.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
