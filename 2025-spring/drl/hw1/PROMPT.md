@@ -27,11 +27,13 @@ Feature Requirements:
 5. Result Display
 
    - Button: CALC
-     - Upon clicking, calculate the optimal path.
+     - When clicked, calculate the optimal path.
    - Button: GO
-     - Upon clicking, the robot moves from the starting point to the endpoint according to the optimal policy and displays the movement process (with optional animations).
+     - When clicked, the robot moves from the starting point to the endpoint according to the optimal policy and displays the movement process (with optional animations).
+   - Button: Random
+      - When clicked, the robot moves from the starting point to the endpoint according to a random policy and displays the movement process (with optional animations).
    - Button: RESET
-     - Upon clicking, the map resets to its initial state, allowing users to reselect the starting point, endpoint, and obstacles.
+     - When clicked, the map resets to its initial state, allowing users to reselect the starting point, endpoint, and obstacles.
      - If pressed during the GO process, the robot immediately stops moving and is removed, and the map returns to its initial state.
 
 6. Result Visualization

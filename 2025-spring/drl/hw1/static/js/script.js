@@ -22,12 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const goBtn = document.getElementById('goBtn');
     const resetBtn = document.getElementById('resetBtn');
     const messageBox = document.getElementById('messageBox');
+    const randomBtn = document.getElementById('randomBtn');
     
     // Initialize app
     generateBtn.addEventListener('click', generateGrid);
     calcBtn.addEventListener('click', calculateOptimalPolicy);
     goBtn.addEventListener('click', startRobotAnimation);
     resetBtn.addEventListener('click', resetGrid);
+    randomBtn.addEventListener('click', generateRandomGrid);
     
     // Generate initial grid
     generateGrid();
@@ -366,5 +368,66 @@ document.addEventListener('DOMContentLoaded', function() {
         messageBox.textContent = message;
         messageBox.className = `alert alert-${type}`;
         messageBox.style.display = 'block';
+    }
+    
+    // Function to generate random grid configuration
+    function generateRandomGrid() {
+        // Reset the grid first
+        resetGrid();
+        
+        // Generate a unique random position for start, end and obstacles
+        const positions = [];
+        
+        // Calculate total cells
+        const totalCells = gridSize * gridSize;
+        
+        // Determine number of obstacles (gridSize - 2)
+        const obstacleNum = gridSize - 2;
+        
+        // Generate unique random positions for start, end, and obstacles
+        while (positions.length < obstacleNum + 2) { // +2 for start and end positions
+            const randomPos = Math.floor(Math.random() * totalCells);
+            const row = Math.floor(randomPos / gridSize);
+            const col = randomPos % gridSize;
+            
+            // Check if position is already used
+            if (!positions.includes(`${row}-${col}`)) {
+                positions.push(`${row}-${col}`);
+            }
+        }
+        
+        // Set start position
+        const startPos = positions[0].split('-');
+        const startRow = parseInt(startPos[0]);
+        const startCol = parseInt(startPos[1]);
+        gridData[startRow][startCol] = 'start';
+        const startCell = gridContainer.querySelector(`[data-row="${startRow}"][data-col="${startCol}"]`);
+        startCell.classList.add('start');
+        startSet = true;
+        
+        // Set end position
+        const endPos = positions[1].split('-');
+        const endRow = parseInt(endPos[0]);
+        const endCol = parseInt(endPos[1]);
+        gridData[endRow][endCol] = 'end';
+        const endCell = gridContainer.querySelector(`[data-row="${endRow}"][data-col="${endCol}"]`);
+        endCell.classList.add('end');
+        endSet = true;
+        
+        // Set obstacles
+        for (let i = 2; i < positions.length; i++) {
+            const obsPos = positions[i].split('-');
+            const obsRow = parseInt(obsPos[0]);
+            const obsCol = parseInt(obsPos[1]);
+            gridData[obsRow][obsCol] = 'obstacle';
+            const obsCell = gridContainer.querySelector(`[data-row="${obsRow}"][data-col="${obsCol}"]`);
+            obsCell.classList.add('obstacle');
+            obstacleCount++;
+        }
+        
+        showMessage('Random grid generated. Calculating optimal policy...', 'info');
+        
+        // Automatically calculate the optimal policy after generating the random grid
+        setTimeout(calculateOptimalPolicy, 100); // Small delay to allow UI update
     }
 });

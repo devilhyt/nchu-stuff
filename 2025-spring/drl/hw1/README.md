@@ -87,7 +87,9 @@ The server is running on http://127.0.0.1:5000.
 
 3. Click "CALC" to calculate optimal policy
 4. Click "GO" to watch the robot follow the optimal path
-5. Click "RESET" to start over
+5. Click "Random" to generate a random grid and calculate the path
+   - It can be regarded as `HW1-2`.
+6. Click "RESET" to start over
 
 ## Additional Notes
 
