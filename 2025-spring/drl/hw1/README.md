@@ -1,6 +1,6 @@
 # HW1: Gridworld Environment and Value Iteration
 
-![app](image/app.png)
+![app](image/app.gif)
 
 ## Overview
 
