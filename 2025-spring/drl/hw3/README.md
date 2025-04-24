@@ -7,7 +7,7 @@
 The [`main.ipynb`](main.ipynb) is the primary submission for the assignment, developed with the assistance of **GitHub Copilot** and **Grok**.
 
 > [!NOTE]
-> The LaTeX equations in the notebook and PDF are rendered using [Overleaf](https://www.overleaf.com/). The LaTeX source code is in the [`algo.tex`](algo.tex)
+> The LaTeX equations in the notebook are rendered using [Overleaf](https://www.overleaf.com/). The LaTeX source code is in the [`algo.tex`](algo.tex)
 
 ## Environment Setup
 
