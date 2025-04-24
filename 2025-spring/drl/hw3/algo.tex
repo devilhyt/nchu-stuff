@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+\section{Multi-Armed Bandit Algorithms}
+
+\subsection{Epsilon-Greedy Algorithm}
+\begin{algorithm}
+\caption{Epsilon-Greedy}
+\begin{algorithmic}
+\State \textbf{Input:} Number of arms $K$, iterations $T$, exploration parameter $\epsilon \in [0, 1]$
+\State Initialize: $Q(a) \gets 0$, $N(a) \gets 0$ for all arms $a \in \{1, \dots, K\}$
+\For{$t = 1$ to $T$}
+    \If{random number $\sim U(0,1) < \epsilon$}
+        \State Select arm $a_t \sim \text{Uniform}(\{1, \dots, K\})$
+    \Else
+        \State Select arm $a_t \gets \arg\max_{a} Q(a)$ \Comment{If $N(a) = 0$, set $Q(a) = \infty$}
+    \EndIf
+    \State Observe reward $r_t$ from arm $a_t$
+    \State Update: $N(a_t) \gets N(a_t) + 1$
+    \State Update: $Q(a_t) \gets Q(a_t) + \frac{1}{N(a_t)} (r_t - Q(a_t))$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Upper Confidence Bound (UCB) Algorithm}
+\begin{algorithm}
+\caption{UCB}
+\begin{algorithmic}
+\State \textbf{Input:} Number of arms $K$, iterations $T$, exploration parameter $c > 0$
+\State Initialize: $Q(a) \gets 0$, $N(a) \gets 0$ for all arms $a \in \{1, \dots, K\}$, $t \gets 0$
+\For{$t = 1$ to $T$}
+    \If{there exists arm $a$ with $N(a) = 0$}
+        \State Select arm $a_t \gets a$
+    \Else
+        \State Select arm $a_t \gets \arg\max_{a} \left[ Q(a) + c \sqrt{\frac{\ln t}{N(a)}} \right]$
+    \EndIf
+    \State Observe reward $r_t$ from arm $a_t$
+    \State Update: $N(a_t) \gets N(a_t) + 1$
+    \State Update: $Q(a_t) \gets Q(a_t) + \frac{1}{N(a_t)} (r_t - Q(a_t))$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Softmax Algorithm}
+\begin{algorithm}
+\caption{Softmax}
+\begin{algorithmic}
+\State \textbf{Input:} Number of arms $K$, iterations $T$, temperature $\tau > 0$
+\State Initialize: $Q(a) \gets 0$, $N(a) \gets 0$ for all arms $a \in \{1, \dots, K\}$
+\For{$t = 1$ to $T$}
+    \If{there exists arm $a$ with $N(a) = 0$}
+        \State Select arm $a_t \gets a$
+    \Else
+        \State Compute probabilities: $p(a) \gets \frac{\exp(Q(a)/\tau)}{\sum_{b=1}^K \exp(Q(b)/\tau)}$ for all $a$
+        \State Select arm $a_t \sim \text{Categorical}(p(1), \dots, p(K))$
+    \EndIf
+    \State Observe reward $r_t$ from arm $a_t$
+    \State Update: $N(a_t) \gets N(a_t) + 1$
+    \State Update: $Q(a_t) \gets Q(a_t) + \frac{1}{N(a_t)} (r_t - Q(a_t))$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Thompson Sampling Algorithm}
+\begin{algorithm}
+\caption{Thompson Sampling (Beta Distribution)}
+\begin{algorithmic}
+\State \textbf{Input:} Number of arms $K$, iterations $T$, prior parameters $\alpha_0, \beta_0 > 0$
+\State Initialize: $\alpha(a) \gets \alpha_0$, $\beta(a) \gets \beta_0$ for all arms $a \in \{1, \dots, K\}$
+\For{$t = 1$ to $T$}
+    \For{each arm $a \in \{1, \dots, K\}$}
+        \State Sample $\theta(a) \sim \text{Beta}(\alpha(a), \beta(a))$
+    \EndFor
+    \State Select arm $a_t \gets \arg\max_{a} \theta(a)$
+    \State Observe reward $r_t$ from arm $a_t$
+    \State Scale reward: $r'_t \gets \frac{r_t - \min(r)}{\max(r) - \min(r)}$ \Comment{If $\max(r) \neq \min(r)$}
+    \State Update: $\alpha(a_t) \gets \alpha(a_t) + r'_t$
+    \State Update: $\beta(a_t) \gets \beta(a_t) + (1 - r'_t)$
+\EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
