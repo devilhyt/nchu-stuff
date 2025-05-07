@@ -22,7 +22,7 @@ cd nchu-stuff
 git sparse-checkout init --cone
 git sparse-checkout set "2025-spring/drl/hw4"
 git checkout
-![alt text](image.png)
+
 cd 2025-spring/drl/hw4
 ```
 
