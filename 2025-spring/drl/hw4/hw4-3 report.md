@@ -1,6 +1,12 @@
 # HW4-3: Enhance DQN for random mode With Training Tips
 
-## Introduction
+## Prompt
+
+This experiment [hw4-3.ipynb](hw4-3.ipynb) uses PyTorch Lightning to train a DQN model and incorporates a learning rate scheduler as a training technique to optimize performance. Please provide an introduction and generate a short report, including comparison tables, in markdown format.
+
+## Reply
+
+### Introduction
 
 In this experiment, we refactor the classic Deep Q-Network (DQN) agent for the Gridworld environment using PyTorch Lightning. The main improvements over the baseline implementation are:
 
@@ -9,7 +15,7 @@ In this experiment, we refactor the classic Deep Q-Network (DQN) agent for the G
 - **Learning Rate Scheduler:** Reduces the learning rate by half at 4/5 of the total epochs to fine-tune the model and stabilize convergence.
 - **Experience Replay & Wall Penalty:** Retains the improved experience replay and wall-avoidance mechanism from the enhanced DQN (程式 3.5 改良版).
 
-## Experiment Summary
+### Experiment Summary
 
 | Feature                 | Baseline DQN (程式 3.5 改良版) | Enhanced DQN (This Work) |
 | ----------------------- | ------------------------------ | ------------------------ |
@@ -21,7 +27,7 @@ In this experiment, we refactor the classic Deep Q-Network (DQN) agent for the G
 | Training Management     | Manual                         | Automated (Lightning)    |
 | Logging                 | Manual print/plot              | Lightning logging        |
 
-## Training Results
+### Training Results
 
 - **Loss Curve:** The training loss decreases over time, indicating successful learning and convergence.
 - **Win Rate:** After training, the enhanced DQN achieves a high win percentage in the random Gridworld mode.
@@ -32,13 +38,13 @@ In this experiment, we refactor the classic Deep Q-Network (DQN) agent for the G
 | Total Epochs   | 5000                           | 5000                     |
 | Final LR       | 0.001 (fixed)                  | 0.0005 (after decay)     |
 
-## Key Takeaways
+### Key Takeaways
 
 - **PyTorch Lightning** streamlines the training loop, making the code more maintainable and scalable for future experiments.
 - **Deeper Q-Networks** can capture more complex state-action relationships, potentially improving policy quality.
 - **Learning Rate Scheduling** helps avoid local minima and overfitting, especially in the later stages of training.
 - **Wall Penalty** encourages the agent to avoid invalid moves, speeding up learning.
 
-## Conclusion
+### Conclusion
 
 This experiment demonstrates that combining PyTorch Lightning, deeper networks, and training techniques like learning rate scheduling can significantly enhance DQN performance and code quality for reinforcement learning tasks in Gridworld.
