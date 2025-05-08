@@ -1,4 +1,4 @@
-# Comparison of Double DQN and Dueling DQN in Reinforcement Learning
+# HW4-2: Enhanced DQN Variants for player mode
 
 ## Prompt
 
@@ -6,6 +6,8 @@ This experiment [hw4-2.ipynb](hw4-2.ipynb) focuses on the comparison between Dou
 Please provide an introduction and generate a short report, including comparison tables, in markdown format.
 
 ## Reply
+
+Comparison of Double DQN and Dueling DQN in Reinforcement Learning
 
 ### Introduction
 

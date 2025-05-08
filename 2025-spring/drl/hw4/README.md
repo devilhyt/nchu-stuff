@@ -4,7 +4,7 @@
 
 ## Overview
 
-Each sub-question has a `report.md` file and an `.ipynb` file. The assignments were developed with the assistance of **GitHub Copilot** and **Grok**.
+Each question has a `report.md` file and an `.ipynb` file. The assignment was developed with the assistance of **GitHub Copilot** and **Grok**.
 
 ## Environment Setup
 

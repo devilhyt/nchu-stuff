@@ -1,10 +1,12 @@
-# Deep Q-Network (DQN) Reinforcement Learning: Summary
+# HW4-1: Naive DQN for static mode
 
 ## Prompt
 
 This notebook [hw4-1.ipynb](hw4-1.ipynb) is related to Deep Q-Network (DQN) reinforcement learning. Please introduce it and get me a short understanding report using markdown format.
 
 ## Reply
+
+Deep Q-Network (DQN) Reinforcement Learning: Summary
 
 ### Introduction
 
