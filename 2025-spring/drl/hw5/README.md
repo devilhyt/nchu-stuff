@@ -19,7 +19,7 @@ The [`main.ipynb`](main.ipynb) and [`report.md`](report.md) are the primary subm
 
 ### Execution Steps:
 
-1. Download the `hw5.ipynb` file.
-2. Import the `hw5.ipynb` file into Google Colab.
-3. Run the notebook.
+1. Download the [`main.ipynb`](main.ipynb) file.
+2. Open it in Google Colab.
+3. In the menu bar, click on `Runtime` > `Run all`.
 
