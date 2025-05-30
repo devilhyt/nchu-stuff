@@ -8,6 +8,9 @@ This assignment runs the Highway task from [HighwayEnv](https://github.com/Faram
 
 The [`main.ipynb`](main.ipynb) and [`report.md`](report.md) are the primary submissions for the assignment, developed with the assistance of **GitHub Copilot** and **NotebookLM (Google)**.
 
+> [!WARNING]
+> You must use **Google Colab** or **VS Code** to view the contents of [`main.ipynb`](main.ipynb). It cannot be viewed directly on GitHub.
+
 ## Environment Setup
 
 ### The environment used in this assignment:
